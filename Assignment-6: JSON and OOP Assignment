@@ -1,0 +1,80 @@
+Task 1: Creating Employee Objects from JSON File
+[
+    {
+        "Name": "shivam",
+        "DOB": "1990-05-15",
+        "Height": 175,
+        "City": "delhi",
+        "State": "delhi"
+    },
+    {
+        "Name": "rahul",
+        "DOB": "1988-12-03",
+        "Height": 162,
+        "City": "pune",
+        "State": "Mharashtra"
+    },
+    {
+        "Name": "kriti",
+        "DOB": "1995-08-21",
+        "Height": 183,
+        "City": "goa",
+        "State": "goa"
+    },
+    {
+        "Name": "nitika",
+        "DOB": "1992-03-10",
+        "Height": 170,
+        "City": "meerut",
+        "State": "uttar pradesh"
+    },
+    {
+        "Name": "kashish",
+        "DOB": "1987-09-28",
+        "Height": 178,
+        "City": "noida",
+        "State": "uttar pradesh"
+    }
+]
+
+import json
+
+class Employee:
+    def __init__(self, name, dob, height, city, state):
+        self.name = name
+        self.dob = dob
+        self.height = height
+        self.city = city
+        self.state = state
+
+# Read data from JSON file
+with open('employee.json', 'r') as json_file:
+    employee_data = json.load(json_file)
+
+# Create Employee objects and store in a list
+employees = []
+for emp in employee_data:
+    employees.append(Employee(emp["Name"], emp["DOB"], emp["Height"], emp["City"], emp["State"]))
+
+# Print the list of Employee objects
+for emp in employees:
+    print(vars(emp))
+
+Task 2: Creating JSON File for Indian States and Capitals
+
+# Dictionary of Indian states and capitals
+indian_states = {
+    "Andhra Pradesh": "Amaravati",
+    "Maharashtra": "Mumbai",
+    "Karnataka": "Bengaluru",
+    "Tamil Nadu": "Chennai",
+    "Uttar Pradesh": "Lucknow",
+    "Punjab": "Chandigarh",
+    "Rajasthan": "Jaipur"
+}
+
+# Write data to JSON file
+with open('indian_states.json', 'w') as json_file:
+    json.dump(indian_states, json_file, indent=4)
+
+. Create a class named ‘Dog’. It should have a constructor which accepts its name, age and coat color. You must perform the following operations:
